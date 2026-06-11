@@ -1,9 +1,10 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sistema Web de Gestión de Inventarios para Restaurante</title>
+<title>Sistema Web de Gestión de Restaurante</title>
 
 <style>
 
@@ -11,7 +12,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Segoe UI, sans-serif;
+    font-family:Segoe UI,sans-serif;
 }
 
 body{
@@ -78,6 +79,11 @@ body{
     padding:20px;
     border-radius:10px;
     box-shadow:0 2px 10px rgba(0,0,0,.1);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
 }
 
 table{
@@ -87,13 +93,13 @@ table{
     background:white;
 }
 
-table th{
+th{
     background:#1f2937;
     color:white;
     padding:12px;
 }
 
-table td{
+td{
     border:1px solid #ddd;
     padding:10px;
     text-align:center;
@@ -127,12 +133,17 @@ table td{
     cursor:pointer;
 }
 
+.btn-agregar:hover,
+.btn-editar:hover,
+.btn-eliminar:hover{
+    opacity:.85;
+}
+
 h1{
     margin-bottom:15px;
 }
 
 </style>
-
 </head>
 <body>
 
@@ -156,195 +167,229 @@ h1{
 
 <div class="contenido">
 
-    <!-- INICIO -->
-    <div id="inicio" class="seccion activa">
+<!-- INICIO -->
+<div id="inicio" class="seccion activa">
 
-        <h1>Bienvenido al Sistema de Restaurante</h1>
+<h1>Bienvenido al Sistema de Restaurante</h1>
 
-        <div class="cards">
+<div class="cards">
 
-            <div class="card">
-                <h2>🍔 Platos</h2>
-                <p>Gestión del menú.</p>
-            </div>
+<div class="card">
+<h2>🍔 Platos</h2>
+<p>Gestión del menú.</p>
+</div>
 
-            <div class="card">
-                <h2>📦 Inventario</h2>
-                <p>Control de insumos.</p>
-            </div>
+<div class="card">
+<h2>📦 Inventario</h2>
+<p>Control de insumos.</p>
+</div>
 
-            <div class="card">
-                <h2>🛒 Pedidos</h2>
-                <p>Gestión de pedidos.</p>
-            </div>
+<div class="card">
+<h2>🛒 Pedidos</h2>
+<p>Gestión de pedidos.</p>
+</div>
 
-            <div class="card">
-                <h2>🪑 Mesas</h2>
-                <p>Administración de mesas.</p>
-            </div>
+<div class="card">
+<h2>🪑 Mesas</h2>
+<p>Administración de mesas.</p>
+</div>
 
-        </div>
+</div>
+</div>
 
-    </div>
+<!-- PLATOS -->
+<div id="platos" class="seccion">
 
-    <!-- PLATOS -->
-    <div id="platos" class="seccion">
+<h1>🍔 Gestión de Platos</h1>
 
-        <h1>🍔 Gestión de Platos</h1>
+<button class="btn-agregar" onclick="agregarFila('tablaPlatos')">
+➕ Añadir Plato
+</button>
 
-        <button class="btn-agregar">➕ Añadir Plato</button>
+<table id="tablaPlatos">
 
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Plato</th>
-                <th>Precio</th>
-                <th>Acciones</th>
-            </tr>
+<tr>
+<th>ID</th>
+<th>Nombre</th>
+<th>Precio</th>
+<th>Acciones</th>
+</tr>
 
-            <tr>
-                <td>1</td>
-                <td>Hamburguesa Especial</td>
-                <td>25 Bs</td>
-                <td>
-                    <button class="btn-editar">Editar</button>
-                    <button class="btn-eliminar">Eliminar</button>
-                </td>
-            </tr>
-        </table>
+<tr>
+<td>1</td>
+<td>Hamburguesa Especial</td>
+<td>25 Bs</td>
+<td>
+<button class="btn-editar" onclick="editarFila(this)">Editar</button>
+<button class="btn-eliminar" onclick="eliminarFila(this)">Eliminar</button>
+</td>
+</tr>
 
-    </div>
+</table>
+</div>
 
-    <!-- INVENTARIO -->
-    <div id="inventario" class="seccion">
+<!-- INVENTARIO -->
+<div id="inventario" class="seccion">
 
-        <h1>📦 Inventario</h1>
+<h1>📦 Inventario</h1>
 
-        <button class="btn-agregar">➕ Añadir Insumo</button>
+<button class="btn-agregar" onclick="agregarFila('tablaInventario')">
+➕ Añadir Insumo
+</button>
 
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Insumo</th>
-                <th>Cantidad</th>
-                <th>Acciones</th>
-            </tr>
+<table id="tablaInventario">
 
-            <tr>
-                <td>1</td>
-                <td>Tomate</td>
-                <td>20 Kg</td>
-                <td>
-                    <button class="btn-editar">Editar</button>
-                    <button class="btn-eliminar">Eliminar</button>
-                </td>
-            </tr>
-        </table>
+<tr>
+<th>ID</th>
+<th>Insumo</th>
+<th>Cantidad</th>
+<th>Acciones</th>
+</tr>
 
-    </div>
+<tr>
+<td>1</td>
+<td>Tomate</td>
+<td>20 Kg</td>
+<td>
+<button class="btn-editar" onclick="editarFila(this)">Editar</button>
+<button class="btn-eliminar" onclick="eliminarFila(this)">Eliminar</button>
+</td>
+</tr>
 
-    <!-- PEDIDOS -->
-    <div id="pedidos" class="seccion">
+</table>
+</div>
 
-        <h1>🛒 Pedidos</h1>
+<!-- PEDIDOS -->
+<div id="pedidos" class="seccion">
 
-        <button class="btn-agregar">➕ Nuevo Pedido</button>
+<h1>🛒 Pedidos</h1>
 
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Cliente</th>
-                <th>Total</th>
-                <th>Acciones</th>
-            </tr>
+<button class="btn-agregar" onclick="agregarFila('tablaPedidos')">
+➕ Nuevo Pedido
+</button>
 
-            <tr>
-                <td>001</td>
-                <td>Carlos Pérez</td>
-                <td>120 Bs</td>
-                <td>
-                    <button class="btn-editar">Editar</button>
-                    <button class="btn-eliminar">Eliminar</button>
-                </td>
-            </tr>
-        </table>
+<table id="tablaPedidos">
 
-    </div>
+<tr>
+<th>ID</th>
+<th>Cliente</th>
+<th>Total</th>
+<th>Acciones</th>
+</tr>
 
-    <!-- MESAS -->
-    <div id="mesas" class="seccion">
+<tr>
+<td>1</td>
+<td>Carlos Pérez</td>
+<td>120 Bs</td>
+<td>
+<button class="btn-editar" onclick="editarFila(this)">Editar</button>
+<button class="btn-eliminar" onclick="eliminarFila(this)">Eliminar</button>
+</td>
+</tr>
 
-        <h1>🪑 Mesas</h1>
+</table>
+</div>
 
-        <button class="btn-agregar">➕ Añadir Mesa</button>
+<!-- MESAS -->
+<div id="mesas" class="seccion">
 
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Mesa</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-            </tr>
+<h1>🪑 Mesas</h1>
 
-            <tr>
-                <td>1</td>
-                <td>Mesa 1</td>
-                <td>Libre</td>
-                <td>
-                    <button class="btn-editar">Editar</button>
-                    <button class="btn-eliminar">Eliminar</button>
-                </td>
-            </tr>
-        </table>
+<button class="btn-agregar" onclick="agregarFila('tablaMesas')">
+➕ Añadir Mesa
+</button>
 
-    </div>
+<table id="tablaMesas">
 
-    <!-- VENTAS -->
-    <div id="ventas" class="seccion">
+<tr>
+<th>ID</th>
+<th>Mesa</th>
+<th>Estado</th>
+<th>Acciones</th>
+</tr>
 
-        <h1>💰 Ventas</h1>
+<tr>
+<td>1</td>
+<td>Mesa 1</td>
+<td>Libre</td>
+<td>
+<button class="btn-editar" onclick="editarFila(this)">Editar</button>
+<button class="btn-eliminar" onclick="eliminarFila(this)">Eliminar</button>
+</td>
+</tr>
 
-        <table>
-            <tr>
-                <th>ID</th>
-                <th>Fecha</th>
-                <th>Total</th>
-            </tr>
+</table>
+</div>
 
-            <tr>
-                <td>1</td>
-                <td>06/06/2026</td>
-                <td>850 Bs</td>
-            </tr>
-        </table>
+<!-- VENTAS -->
+<div id="ventas" class="seccion">
 
-    </div>
+<h1>💰 Ventas</h1>
 
-    <!-- REPORTES -->
-    <div id="reportes" class="seccion">
+<table>
 
-        <h1>📊 Reportes</h1>
+<tr>
+<th>ID</th>
+<th>Fecha</th>
+<th>Total</th>
+</tr>
 
-        <div class="cards">
+<tr>
+<td>V001</td>
+<td>11/06/2026</td>
+<td>850 Bs</td>
+</tr>
 
-            <div class="card">
-                <h2>Ventas del Día</h2>
-                <p>850 Bs</p>
-            </div>
+<tr>
+<td>V002</td>
+<td>11/06/2026</td>
+<td>450 Bs</td>
+</tr>
 
-            <div class="card">
-                <h2>Pedidos</h2>
-                <p>25</p>
-            </div>
+</table>
 
-            <div class="card">
-                <h2>Mesas Ocupadas</h2>
-                <p>6</p>
-            </div>
+</div>
 
-        </div>
+<!-- REPORTES -->
+<div id="reportes" class="seccion">
 
-    </div>
+<h1>📊 Reportes</h1>
+
+<div class="cards">
+
+<div class="card">
+<h2>💰 Ventas del Día</h2>
+<p>850 Bs</p>
+</div>
+
+<div class="card">
+<h2>🛒 Pedidos</h2>
+<p>25</p>
+</div>
+
+<div class="card">
+<h2>🪑 Mesas Ocupadas</h2>
+<p>6</p>
+</div>
+
+<div class="card">
+<h2>📦 Productos</h2>
+<p>125</p>
+</div>
+
+<div class="card">
+<h2>🍔 Platos Disponibles</h2>
+<p>45</p>
+</div>
+
+<div class="card">
+<h2>⭐ Más Vendido</h2>
+<p>Hamburguesa Especial</p>
+</div>
+
+</div>
+
+</div>
 
 </div>
 
@@ -352,7 +397,7 @@ h1{
 
 function mostrar(id){
 
-    let secciones = document.querySelectorAll('.seccion');
+    let secciones=document.querySelectorAll('.seccion');
 
     secciones.forEach(sec=>{
         sec.classList.remove('activa');
@@ -361,7 +406,67 @@ function mostrar(id){
     document.getElementById(id).classList.add('activa');
 }
 
+function agregarFila(tablaId){
+
+    let nombre=prompt("Ingrese el nombre:");
+
+    if(!nombre) return;
+
+    let valor=prompt("Ingrese el valor:");
+
+    if(!valor) return;
+
+    let tabla=document.getElementById(tablaId);
+
+    let fila=tabla.insertRow();
+
+    let id=tabla.rows.length-1;
+
+    fila.innerHTML=`
+        <td>${id}</td>
+        <td>${nombre}</td>
+        <td>${valor}</td>
+        <td>
+            <button class="btn-editar" onclick="editarFila(this)">
+                Editar
+            </button>
+
+            <button class="btn-eliminar" onclick="eliminarFila(this)">
+                Eliminar
+            </button>
+        </td>
+    `;
+}
+
+function editarFila(btn){
+
+    let fila=btn.parentNode.parentNode;
+
+    let nuevoNombre=prompt(
+        "Editar nombre:",
+        fila.cells[1].innerText
+    );
+
+    if(nuevoNombre){
+
+        fila.cells[1].innerText=nuevoNombre;
+
+    }
+
+}
+
+function eliminarFila(btn){
+
+    if(confirm("¿Desea eliminar este registro?")){
+
+        btn.parentNode.parentNode.remove();
+
+    }
+
+}
+
 </script>
 
 </body>
 </html>
+```
