@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestión de Restaurante</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Barra lateral -->
+    <div class="sidebar">
+
+        <div class="logo">
+            🍽 RESTAURANTE
+        </div>
+
+        <ul class="menu">
+            <li><a href="/dashboard">🏠 Inicio</a></li>
+            <li><a href="/platos">🍔 Platos</a></li>
+            <li><a href="/inventario">📦 Inventario</a></li>
+            <li><a href="/pedidos">🛒 Pedidos</a></li>
+            <li><a href="/mesas">🪑 Mesas</a></li>
+            <li><a href="/ventas">💰 Ventas</a></li>
+            <li><a href="/reportes">📊 Reportes</a></li>
+        </ul>
+
+        <a href="/logout" class="cerrar">
+            🚪 Cerrar Sesión
+        </a>
+
+    </div>
+
+    <!-- Contenido principal -->
+    <div class="contenido">
+
+        <div class="encabezado">
+            <h1>Bienvenido al Sistema de Restaurante</h1>
+            <p>Panel principal de administración</p>
+        </div>
+
+        <div class="cards">
+
+            <!-- Platos -->
+            <div class="card">
+                <h2>🍔 Platos</h2>
+                <p>Administrar menú, recetas y precios de los platos.</p>
+                <a href="/platos" class="btn">Ingresar</a>
+            </div>
+
+            <!-- Inventario -->
+            <div class="card">
+                <h2>📦 Inventario</h2>
+                <p>Controlar insumos, stock y abastecimiento.</p>
+                <a href="/inventario" class="btn">Ingresar</a>
+            </div>
+
+            <!-- Pedidos -->
+            <div class="card">
+                <h2>🛒 Pedidos</h2>
+                <p>Registrar y administrar pedidos de clientes.</p>
+                <a href="/pedidos" class="btn">Ingresar</a>
+            </div>
+
+            <!-- Mesas -->
+            <div class="card">
+                <h2>🪑 Mesas</h2>
+                <p>Control de disponibilidad y ocupación de mesas.</p>
+                <a href="/mesas" class="btn">Ingresar</a>
+            </div>
+
+            <!-- Ventas -->
+            <div class="card">
+                <h2>💰 Ventas</h2>
+                <p>Registrar cobros y visualizar ingresos diarios.</p>
+                <a href="/ventas" class="btn">Ingresar</a>
+            </div>
+
+            <!-- Reportes -->
+            <div class="card">
+                <h2>📊 Reportes</h2>
+                <p>Generar reportes de ventas e inventario.</p>
+                <a href="/reportes" class="btn">Ingresar</a>
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

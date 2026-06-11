@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Inicio de Sesión</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="login-container">
+
+    <div class="login-box">
+
+        <h1>🍽 Restaurante</h1>
+
+        <h2>Iniciar Sesión</h2>
+
+        <form action="/validar" method="POST">
+
+            <input
+                type="text"
+                name="usuario"
+                placeholder="Usuario"
+                required>
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Contraseña"
+                required>
+
+            <button type="submit">
+                Ingresar
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
